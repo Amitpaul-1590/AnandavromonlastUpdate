@@ -17,6 +17,7 @@ import logoImg from './Images/projLogo.png';
 
 
 import './App.css'; 
+import Hotel_Info from './Components/Hotel_Info';
 
    
 const App = () => {  
@@ -80,6 +81,7 @@ const App = () => {
                  <Route exact path='/Information' element={< Information /> }></Route>
                  <Route Component={NotFound}></Route>              
                  <Route exact path="/add-products" element={<AddPlaces />}/>
+                 <Route exact path="/Hotel_Info" element={<Hotel_Info></Hotel_Info>}></Route>
                 {/* <Route exact path="/cart" component={Cart}/>        */}        
           </Routes>  
           </div>            

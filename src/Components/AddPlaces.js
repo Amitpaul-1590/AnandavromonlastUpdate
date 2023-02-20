@@ -166,8 +166,7 @@ export const AddPlaces = () => {
     }
 
     return (
-        <div className='addplaceContainer'>
-            <Navbar />
+        <div className='addplaceContainer' style={{}}>
             <br></br>
             <br></br>
             <h1 className='Addplace'>Add Place</h1>
@@ -187,7 +186,7 @@ export const AddPlaces = () => {
                 <br></br>
                 
                 <label className='label3'>Spot Category</label>
-                <select className='selectplace' required
+                <select className='selectplace' style={{color: "black"}} required
                 value={category} onChange={(e)=>setCategory(e.target.value)}>                                    
                     <option className='option' value="">Select spot Category</option>                   
                     <option className='option'>Lake</option>

@@ -1,6 +1,8 @@
 //user
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 export const IndividualFilteredProduct = ({individualFilteredProduct}) => {
     const sheet_link = individualFilteredProduct.sheet_link;
@@ -13,12 +15,15 @@ export const IndividualFilteredProduct = ({individualFilteredProduct}) => {
     }
 
     return (
-        <div className='product' style={{backgroundColor:'skyblue',  width:"250px",height:"350px"}}>
-            <div  className='product-img'>
-            <h1 className='photoCard'><a style={{}} href={individualFilteredProduct.map_link}><img style={{borderRadius:"10px",boxShadow:"5px",margin:"0px"}} src={individualFilteredProduct.url} alt="product-img"/>  </a></h1>            </div>
-            <h1  className='cardTitle'><a style={{textDecoration: 'none' ,color:"white",fontSize:"15px", fontWeight:"bold"}} href={individualFilteredProduct.web_link}>{individualFilteredProduct.title}  </a></h1>            
-            <div style={{color:"blue"}} className='product-text description'>{individualFilteredProduct.description}</div>
-            <div  className='btn btn-danger btn-sm cart-btn' onClick={view_cost}>View cost </div>           
-        </div> 
+      <div style={{margin:"10px"}}>
+      <Card style={{ width: '18rem' }}>      
+       <a href={individualFilteredProduct.map_link}><Card.Img variant="top" src={individualFilteredProduct.url} alt="product-img" />  </a>
+       <Card.Body>
+       <a style={{textDecoration: "none"}} href={individualFilteredProduct.web_link}> <Card.Title >{individualFilteredProduct.title}</Card.Title></a>
+        <Card.Text>{individualFilteredProduct.description}</Card.Text>
+        <Button variant="primary" onClick={view_cost}>View cost </Button>
+      </Card.Body>
+      </Card>
+      </div>  
     )
 }

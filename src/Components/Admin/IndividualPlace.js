@@ -15,6 +15,7 @@ import {
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import EditForm from './EditForm';
+import Card from 'react-bootstrap/Card';  
 
 //https://console.firebase.google.com/u/0/project/project-716fb/firestore/data/~2FProducts~2F0niOg7PevkU3juJF0Gex
 export const IndividualProduct = ({individualProduct}) => {
@@ -71,51 +72,79 @@ export const IndividualProduct = ({individualProduct}) => {
     }
 
     return (
-        <div className='product' style={{backgroundColor:'skyblue',  width:"250px"}} >
-            <div className='product-img' style={{}}>
-                <h1 className='photoCard'><a style={{}} href={individualProduct.map_link}><img  style={{borderRadius:"10px",boxShadow:"5px",margin:"0px"}}  src={individualProduct.url} alt="product-img"/>  </a></h1>
-            </div>
-            <h4 className='cardTitle'><a style={{textDecoration: 'none'}} href={individualProduct.web_link}>{individualProduct.title}  </a></h4>
-            <div style={{color:"blue"}} className='product-text description'>{individualProduct.description}</div>
-            <a href={individualProduct.information1}>Sheet</a>
-            <p className='cardTitle'><a style={{textDecoration: 'none'}} href={individualProduct.information1}>Json sheet</a></p>
-            <div>
-            
-            </div>
-            <div>
-              <div>
-                <Button 
+            <div style={{margin:"10px", backgroundColor:"red", boxShadow: "inherit"}}>   
+              <Card style={{ width: '18rem' }}>      
+               <a href={individualProduct.map_link}><Card.Img variant="top" src={individualProduct.url} alt="product-img" />  </a>
+               <Card.Body>
+                <a style={{textDecoration: "none"}} href={individualProduct.web_link}> <Card.Title >{individualProduct.title}</Card.Title></a>
+                <a style={{textDecoration: "none"}} href={individualProduct.information1}>Sheet</a>
+                <Card.Text>{individualProduct.description}</Card.Text>
+
+                {/* buttons */}
+                <div>
+                  <Button 
+                    onClick={() => {
+                      deletePlace(individualProduct.ID);
+                    }}
+                  >{" "}
+                    Delt
+                  </Button>
+                <div style={{marginLeft: "5px", marginRight: "5px"}} className='btn btn-danger btn-md cart-btn' onClick={view_cost}>View cost </div>
+                  <Button 
+                  variant="primary" 
                   onClick={() => {
-                    deletePlace(individualProduct.ID);
-                  }}
-                >{" "}
-                  Delt
-                </Button>
+                    editData(
+                      individualProduct.ID, 
+                      individualProduct.title,
+                      individualProduct.description,
+                      individualProduct.category,
+                      individualProduct.web_link,
+                      individualProduct.sheet_link,
+                      individualProduct.map_link,
+                      individualProduct.information1,
+                      individualProduct.img
+                    );
+                  }}>
+                    edit
+                  </Button>
+                  <Modal show={show} onHide={handleClose}>
+                    <EditForm closeEvent={handleClose} fid={formid} name="amit" />
+                  </Modal>  
+                </div>
+               </Card.Body>
+              </Card>
+            </div> 
 
-              <div style={{marginLeft: "5px", marginRight: "5px"}} className='btn btn-danger btn-md cart-btn' onClick={view_cost}>View cost </div>   
-
-                <Button 
-                variant="primary" 
-                onClick={() => {
-                  editData(
-                    individualProduct.ID, 
-                    individualProduct.title,
-                    individualProduct.description,
-                    individualProduct.category,
-                    individualProduct.web_link,
-                    individualProduct.sheet_link,
-                    individualProduct.map_link,
-                    individualProduct.information1,
-                    IndividualProduct.img
-                  );
-                }}>
-                  edit
-                </Button>
-              </div>
-              <Modal show={show} onHide={handleClose}>
-                <EditForm closeEvent={handleClose} fid={formid} name="amit" />
-              </Modal>  
-            </div>                    
-        </div> 
+            // <div className='product-img' style={{}}>
+            // <h1 className='photoCard'><a style={{}} href={individualProduct.map_link}><img  style={{borderRadius:"10px",boxShadow:"5px",margin:"0px"}}  src={individualProduct.url} alt="product-img"/>  </a></h1>
+            // </div>
+            // <h4 className='cardTitle'><a style={{textDecoration: 'none'}} href={individualProduct.web_link}>{individualProduct.title}  </a></h4>
+            // <a href={individualProduct.information1}>Sheet</a>
+            // <div className='product-text description'>{individualProduct.description}</div>
+            // <p className='cardTitle'><a style={{textDecoration: 'none'}} href={individualProduct.information1}>Json sheet</a></p>
+            // <div>
+            
+            // </div>
+            // <div className='btn btn-danger btn-md cart-btn' onClick={view_cost}>View cost </div>    */}
+            //   {/* </Card>              
+        
     )
-   }
+   }      
+
+   //import Card from 'react-bootstrap/Card';     
+
+
+      //   <div style={{margin:"10px"}}>
+      // <Card style={{ width: '18rem' }}>      
+      //  <a href={individualProduct.map_link}><Card.Img variant="top" src={individualProduct.url} alt="product-img" />  </a>
+      //  <Card.Body>
+      //  <a style={{textDecoration: "none"}} href={individualProduct.web_link}> <Card.Title >{individualProduct.title}</Card.Title></a>
+      //   <Card.Text>{individualProduct.description}</Card.Text>
+      //   <Button variant="primary" onClick={view_cost}>View cost </Button>
+      // </Card.Body>
+      // </Card>
+      // </div> 
+
+      
+
+      

@@ -111,23 +111,19 @@ export const Home = (props) => {
     }
 
     return (
-        <div className='home'>
+        <div >
             <Navbar user={user} />
             <br></br>
-            <h6 className='p_catagory'>Select Your Suiteble place</h6>
-            
             <div className='container-fluid filter-products-main-box'>
-                <div  className='filter-box' style={{}}>
-                  
-                    
+                <div className='filter-box'>
+                    <h6 className='p_catagory' >Select Your Suiteble place</h6><br/>
                         {spans.map((individualSpan,index)=>(
-                            <span  className='filterPlace' key={index} id={individualSpan.id}
+                            <span className='filterPlace' key={index} id={individualSpan.id}
                             onClick={()=>handleChange(individualSpan)}
-                            
-                            style={{margin:"1%", backgroundColor:"purple", padding:"1%", borderRadius:"5px", height:"50px", width:"50px", color:"white"}}
                             >{individualSpan.text}
                             </span>
-                        ))}                    
+                        ))}
+                    
                 </div>
                 {filteredProducts.length > 0&&(
                   <div className='my-products'>

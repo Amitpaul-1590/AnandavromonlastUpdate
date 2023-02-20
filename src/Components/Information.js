@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 
+
 const Information = () => {
   const [person, setPerson]=useState(0);
   const [day, setDay]=useState(0);
@@ -30,7 +31,6 @@ const Information = () => {
         //  "https://sheet.best/api/sheets/4a4681c3-0c66-42c7-9049-1b8eb33c5ee2"
       );  
       const data = await res.json();
-      console.log(data);
       setData(Object.keys(data).map((key) => data[key]));
     } catch (error) {
       console.log(error);
@@ -42,9 +42,6 @@ const Information = () => {
   }, []);
   return (
     <div style={{backgroundColor:'white', padding: "40px"}}>
-
-
-
       person:
      <input type="number" id="person" className='form-control' required
      onChange={(e)=>setPerson(e.target.value)} value={person}></input>

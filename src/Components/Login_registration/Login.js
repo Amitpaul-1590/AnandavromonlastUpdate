@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 // import AddProducts from './AddProducts'
 import './login.css';
 import {auth} from '../../Config/Config'
+import { IconName } from "react-icons/fa";
 
 
 
@@ -69,7 +70,10 @@ export const Login = () => {
         
          <form className='mainform' onSubmit={handleLogin}>  
             <div >
-                <label className='emailLabel'>Email</label>
+                <label className='emailLabel'> Email</label>
+                {/* import { FaBeer } from 'react-icons/fa'; */}
+                 {/* <h3> Lets go for a <IconName />? </h3> */}
+                 <i class="fa-solid fa-flag"></i>
                {/* <img className='emailimg' src={emailimg} alt="emailimg"></img> */}
                 <input className='emailInput'  type="email"  placeholder='e.g.abc@example.com' required
                 onChange={(e)=>setEmail(e.target.value)} value={email}>      

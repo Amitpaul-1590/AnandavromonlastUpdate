@@ -21,12 +21,6 @@ function Slider(props) {
   }, [activeIndex]);
 
   const navigate = useNavigate();
-  //go to explore button
-// const go_to_explore=()=>{
-//   navigate('/Login');
-// }
-
-
 
   return (
     <div className="slider-container">
@@ -58,10 +52,6 @@ function Slider(props) {
       <p class="article">* can see the hotel cost and many others fasciitis you can get</p>
       
       </div>
-
-      
-
-
     </div>
 
     
