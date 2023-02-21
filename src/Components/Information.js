@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { IndividualProduct } from './Admin/IndividualPlace';
-
+import Modal from 'react-bootstrap/Modal';
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card'
 import Table from 'react-bootstrap/Table';
+import Street from './Street';
 
 
 const Information = () => {
@@ -15,6 +16,24 @@ const Information = () => {
   const [day, setDay]=useState(0);
   const [data, setData] = useState();
   const [open, setOpen] = useState(false);
+
+  // modal
+
+  const [show, setShow] = useState(false);
+  const [formid, setFormid] = useState([]);  //""
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+      const description = (roni) => {
+      const data = {
+        roni: roni,
+      };
+      setFormid(data);
+      handleShow();
+    }
+
+
+  // modal
 
   const location = useLocation();
 
@@ -44,7 +63,7 @@ const Information = () => {
           navigate(
             "/Hotel_Info" ,
             {state :
-              {sheet_link : "individualProduct.sheet_link" }
+              {sheet_link : location.state.sheet_link }
             }
             
           );
@@ -58,10 +77,7 @@ const Information = () => {
       person:
      <input type="number" id="person" className='form-control' required
      onChange={(e)=>setPerson(e.target.value)} value={person}></input>
-     <br></br>
-     Day   : 
-     <input type="number" id="day" className='form-control' required
-     onChange={(e)=>setDay(e.target.value)} value={day}></input>
+
      <br></br>
      <br></br>
      <br></br>
@@ -120,6 +136,22 @@ const Information = () => {
           <td><a href='https://goo.gl/maps/qFw1KJmUurn5jZmC9'></a></td>
           <td>{item.Train*person*2}</td>
         </tr>
+        <tr>
+          <td>desp</td>
+          <td><Button 
+                  variant="primary" 
+                  onClick={() => {
+                    description(
+                      item.Bus
+                    );
+                  }}>
+                    Go
+                  </Button>
+                  <Modal show={show} onHide={handleClose}>
+                    <Street closeEvent={handleClose} fid={formid} />
+                  </Modal></td>
+          <td><Button>Go</Button></td>
+        </tr>
         {/* <tr>
           <td>3</td>
           <td colSpan={2}>Larry the Bird</td>
@@ -128,7 +160,7 @@ const Information = () => {
       </tbody>
 
     </Table>
-                  <Button variant="primary" style={{width: "100%"}} onClick={hotel_cost}>Hotel cost </Button>
+     <Button variant="primary" style={{width: "100%"}} onClick={hotel_cost}>Hotel cost </Button>
 
         </Card.Text>
         {/* <Button variant="primary" onClick={view_cost}>View cost </Button> */}
@@ -140,65 +172,6 @@ const Information = () => {
         </div>
       ))}
 
-    {/* hotel */}
-    <hr></hr>
-    <h1 style={{color:"white",fontWeight:"bold",textShadow:"inherit",textAlign:"center",border:"2px solid red",borderRadius:"10px",backgroundColor:"ButtonText"}}>hotels information</h1>
-    <hr></hr>
-    <br></br>
-      {data?.map((item, i) => (
-        <div key={i}>
-          <h2 id={`heading${i}`}>            
-              <a style={{textDecoration: "none", hover:"true"}} href={item.link}>{item.hotel}  </a>
-          </h2>
-          
-            <div >
-              <div >
-                <span>
-                  <strong className="display-6">{item.heading2} </strong> 
-                </span>
-              </div><br></br>
-              <div >
-      <Card >      
-       {/* <a href={individualFilteredProduct.map_link}><Card.Img variant="top" src={individualFilteredProduct.url} alt="product-img" />  </a> */}
-       <Card.Body>
-        <Card.Title >{item.Heading}</Card.Title>
-        <Card.Text>
-           
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Hotels</th>
-          <th>rent price maximum</th>
-          <th>rent price minimum</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>price</td>
-          <td>{item.maximum_rent}</td>
-          <td>{item.minimum_rent}</td>
-        </tr>
-        <tr>
-          <td>total</td>
-          <td>{item.maximum_rent*person*day}</td>
-          <td>{item.minimum_rent*person*day}</td>
-        </tr>
-
-        <tr>
-          <td>Booking</td>
-          <td colSpan={2}><a style={{textDecoration: "none", hover:"true"}} href={item.link}>{item.hotel}  </a></td>
-        </tr>
-
-      </tbody>
-    </Table>
-        </Card.Text>
-        {/* <Button variant="primary" onClick={view_cost}>View cost </Button> */}
-      </Card.Body>
-      </Card>
-      </div> 
-            </div>
-          </div>
-      ))}
     </div>
   );
 };

@@ -8,8 +8,9 @@ import NotFound from './Components/NotFound';
 import Information from './Components/Information';
 import { AddPlaces } from './Components/AddPlaces';
 // import {HotelInfo} from './Components/Hotel_Info';
-import Hotel_Info, {roni} from './Components/Hotel_Info'
+import Hotel_Info from './Components/Hotel_Info'
 import { GiHamburgerMenu } from "react-icons/gi";
+import Street from './Components/Street'
 
 
 import logoImg from './Images/projLogo.png';
@@ -61,7 +62,7 @@ const App = () => {
                     <p><Link className='link' to="/add-products"> <span  className='barmanu'>Admin</span> </Link></p>  
                   </li> 
                   {/* <li>  
-                    <p><Link className='link' to="/Hotel_Info"> <span  className='barmanu'>hotel_info</span> </Link></p>  
+                    <p><Link className='link' to="/Street"> <span  className='barmanu'>Street</span> </Link></p>  
                   </li> */}
               </ul>
             </div>
@@ -86,6 +87,7 @@ const App = () => {
                  <Route Component={NotFound}></Route>              
                  <Route exact path="/add-products" element={<AddPlaces />}/>
                  <Route exact path='/Hotel_Info' element={<Hotel_Info />}></Route>
+                 <Route exact path='/Street' element={<Street />}></Route>
                  {/* <Route exact path="/HotelInfo" element={<HotelInfo />} /> */}
                 {/* <Route exact path="/cart" component={Cart}/>        */}        
           </Routes>  

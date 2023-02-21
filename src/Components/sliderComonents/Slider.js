@@ -56,7 +56,7 @@ function Slider(props) {
       <div style={{backgroundColor: "", height: "70px"}}>        
         <button className="goToExplore" onClick={()=>navigate("/home")}>Go to explore</button>  
 
-        <iframe src="https://platform.twitter.com/widgets/tweet_button.html"></iframe>
+        {/* <iframe src="https://platform.twitter.com/widgets/tweet_button.html"></iframe> */}
       </div>
     </div>
 

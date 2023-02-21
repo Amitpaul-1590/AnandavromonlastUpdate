@@ -25,6 +25,7 @@ const Hotel_Info = () => {
         setOpen(!open);
         
   }
+  console.log(location.state.sheet_link);
 
   const getData = async () => {
     try {
@@ -44,7 +45,7 @@ const Hotel_Info = () => {
           navigate(
             "/Hotel_Info" ,
             {state :
-              {sheet_link : "individualProduct.sheet_link" }
+              {sheet_link : "location.state.sheet_link" }
             }
             
           );
@@ -55,6 +56,7 @@ const Hotel_Info = () => {
   }, []);
   return (
     <div style={{backgroundColor:'white', padding: "40px"}}>
+        <h1>Hotel Information</h1>
       person:
      <input type="number" id="person" className='form-control' required
      onChange={(e)=>setPerson(e.target.value)} value={person}></input>
@@ -62,12 +64,9 @@ const Hotel_Info = () => {
      Day   : 
      <input type="number" id="day" className='form-control' required
      onChange={(e)=>setDay(e.target.value)} value={day}></input>
-
-
      <br></br>
      <br></br>
-
-
+     <br></br>
     {/* hotel */}
     <hr></hr>
     <h1 style={{color:"white",fontWeight:"bold",textShadow:"inherit",textAlign:"center",border:"2px solid red",borderRadius:"10px",backgroundColor:"ButtonText"}}>hotels information</h1>
@@ -132,67 +131,3 @@ const Hotel_Info = () => {
 };
 
 export default Hotel_Info;
-
-
-
-
-/*
-      {data?.map((item, i) => (
-        <div id={`heading${i}`} key={i} >
-          <br/>                                     
-        <Button
-        style={{backgrondColor:"white"}}
-        id={`roni${i}`}
-        onClick={() => amit(open, i)}
-        aria-controls="example-collapse-text"
-        // style={{backgroundColor:"red",alignItems:"center"}}
-        aria-expanded={open}
-        >
-        {item.Place} 
-      </Button>
-      <Collapse  in={open}>
-          
-      <div style={{margin:"10px"}}>
-      <Card style={{ width: '18rem' }}>      
-
-       <Card.Body>
-        <Card.Title >{item.Heading}</Card.Title>
-        <Card.Text>
-              
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Info</th>
-          <th>Bus</th>
-          <th>Train</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>price</td>
-          <td>{item.Bus}</td>
-          <td>{item.Train}</td>
-        </tr>
-        <tr>
-          <td>total</td>
-          <td>{item.Bus*person*2}</td>
-          <td>{item.Train*person*2}</td>
-        </tr>
-        <tr>
-          <td>Map</td>
-          <td><a href='https://goo.gl/maps/qFw1KJmUurn5jZmC9'></a></td>
-          <td>{item.Train*person*2}</td>
-        </tr>
-        <Button variant="primary" onClick={hotel_cost}>Hotel cost </Button>
-
-      </tbody>
-    </Table>
-        </Card.Text>
-      </Card.Body>
-      </Card>
-      </div> 
-      </Collapse>
-         
-        </div>
-      ))}
-*/
