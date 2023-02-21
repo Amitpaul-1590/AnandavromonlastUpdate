@@ -4,9 +4,8 @@ import Dots from "./Dots";
 import Arrows from "./Arrows";
 import sliderImage from "./sliderImage";
 import "./slider.css";
-import {useNavigate} from "react-router-dom"
-
-
+import {useNavigate} from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const len = sliderImage.length - 1;
 
@@ -24,8 +23,9 @@ function Slider(props) {
 
   return (
     <div className="slider-container">
-<button style={{marginLeft:"35%", border:"none",borderRadius:"5px",color:"white",backgroundColor:"tomato",padding:"8px",fontWeight:"bold"}} onClick={()=>navigate("/home")}>Go to explore</button>  
+
       <SliderContent activeIndex={activeIndex} sliderImage={sliderImage} />
+      
       <Arrows
         prevSlide={() =>
           setActiveIndex(activeIndex < 1 ? len : activeIndex - 1)
@@ -52,6 +52,12 @@ function Slider(props) {
       <p class="article">* can see the hotel cost and many others fasciitis you can get</p>
       
       </div>
+
+      <div style={{backgroundColor: "", height: "70px"}}>        
+        <button className="goToExplore" onClick={()=>navigate("/home")}>Go to explore</button>  
+
+        <iframe src="https://platform.twitter.com/widgets/tweet_button.html"></iframe>
+      </div>
     </div>
 
     
@@ -62,3 +68,4 @@ function Slider(props) {
 }
 
 export default Slider;
+//style={{hover: "background: black" ,margin:"5%", border:"none",borderRadius:"50px",color:"white",backgroundColor:"red",padding:"0px",fontWeight:"bold"}} onClick={()=>navigate("/home")}

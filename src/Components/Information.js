@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
+import Card from 'react-bootstrap/Card'
+import Table from 'react-bootstrap/Table';
 
 
 const Information = () => {
@@ -36,6 +38,17 @@ const Information = () => {
       console.log(error);
     }
   };
+      const navigate = useNavigate(); 
+
+      const hotel_cost=()=>{
+          navigate(
+            "/Hotel_Info" ,
+            {state :
+              {sheet_link : "individualProduct.sheet_link" }
+            }
+            
+          );
+    }
 
   useEffect(() => {
     getData();
@@ -62,6 +75,7 @@ const Information = () => {
         <div id={`heading${i}`} key={i} >
           <br/>                                     
         <Button
+        style={{backgrondColor:"white"}}
         id={`roni${i}`}
         onClick={() => amit(open, i)}
         aria-controls="example-collapse-text"
@@ -71,44 +85,58 @@ const Information = () => {
         {item.Place} 
       </Button>
       <Collapse  in={open}>
-            <div> <br/>
-              <div>
-                <span>
-                  <strong className="display-6">{item.Heading} </strong> ---{" "}
-                </span>
-              </div><br></br>
-              <p>Bus price   : {item.Bus}  <br></br> total: {item.Bus*person*2}  </p>    
-              <p>Train price :{item.Train} <br></br> total: {item.Train*person*2}</p>
-              
-            </div>
+          
+      <div style={{margin:"10px"}}>
+      <Card style={{ width: '18rem' }}>      
+       {/* <a href={individualFilteredProduct.map_link}><Card.Img variant="top" src={individualFilteredProduct.url} alt="product-img" />  </a> */}
+       <Card.Body>
+        <Card.Title >{item.Heading}</Card.Title>
+        <Card.Text>
+              {/* <p>Bus price   : {item.Bus}  <br></br> total: {item.Bus*person*2} </p>                 
+              <p style={{marginLeft: "30px"}}><a style={{textDecoration: "none"}} href={item.information1}>map</a> </p>
+              <p>Train price :{item.Train} <br></br> total: {item.Train*person*2}</p>  
+              <p style={{marginLeft: "30px"}}><a style={{textDecoration: "none"}} href={item.information1}>map</a> </p> */}
+    <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Info</th>
+          <th>Bus</th>
+          <th>Train</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>price</td>
+          <td>{item.Bus}</td>
+          <td>{item.Train}</td>
+        </tr>
+        <tr>
+          <td>total</td>
+          <td>{item.Bus*person*2}</td>
+          <td>{item.Train*person*2}</td>
+        </tr>
+        <tr>
+          <td>Map</td>
+          <td><a href='https://goo.gl/maps/qFw1KJmUurn5jZmC9'></a></td>
+          <td>{item.Train*person*2}</td>
+        </tr>
+        {/* <tr>
+          <td>3</td>
+          <td colSpan={2}>Larry the Bird</td>
+          <td>@twitter</td>
+        </tr> */}
+      </tbody>
+
+    </Table>
+                  <Button variant="primary" style={{width: "100%"}} onClick={hotel_cost}>Hotel cost </Button>
+
+        </Card.Text>
+        {/* <Button variant="primary" onClick={view_cost}>View cost </Button> */}
+      </Card.Body>
+      </Card>
+      </div> 
       </Collapse>
-          {/* <h2 style={{fontWeight:"bold"}}className="accordion-header" id={`heading${i}`}>
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target={`#collapse${i}`}
-              aria-expanded="true"
-              aria-controls={`collapse${i}`}
-            >
-              {item.Place}  
-            </button>
-          </h2>
-          <div
-            id={`collapse${i}`}
-            aria-labelledby={`heading${i}`}
-            data-bs-parent="#accordionExample"
-          >
-            <div>
-              <div>
-                <span>
-                  <strong className="display-6">{item.Heading} </strong> ---{" "}
-                </span>
-              </div><br></br>
-              <p>Bus price   : {item.Bus}  <br></br> total: {item.Bus*person*2}  </p>    
-              <p>Train price :{item.Train} <br></br> total: {item.Train*person*2}</p>
-            </div>
-          </div> */}
+         
         </div>
       ))}
 
@@ -118,9 +146,9 @@ const Information = () => {
     <hr></hr>
     <br></br>
       {data?.map((item, i) => (
-        <div style={{backgroundColor:"skyblue",borderRadius:"10px", paddingTop:"10px",paddingLeft:"20px"}} key={i}>
+        <div key={i}>
           <h2 id={`heading${i}`}>            
-              <a style={{textDecoration: "none"}} href={item.link}>{item.hotel}  </a>
+              <a style={{textDecoration: "none", hover:"true"}} href={item.link}>{item.hotel}  </a>
           </h2>
           
             <div >
@@ -129,13 +157,48 @@ const Information = () => {
                   <strong className="display-6">{item.heading2} </strong> 
                 </span>
               </div><br></br>
-              <p>rent price maximum : {item.maximum_rent} <br></br>  total: {item.maximum_rent*person*day}</p>    
-              <p>rent price minimum : {item.minimum_rent}  <br></br> total: {item.minimum_rent*person*day}</p>
-              
+              <div >
+      <Card >      
+       {/* <a href={individualFilteredProduct.map_link}><Card.Img variant="top" src={individualFilteredProduct.url} alt="product-img" />  </a> */}
+       <Card.Body>
+        <Card.Title >{item.Heading}</Card.Title>
+        <Card.Text>
+           
+    <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Hotels</th>
+          <th>rent price maximum</th>
+          <th>rent price minimum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>price</td>
+          <td>{item.maximum_rent}</td>
+          <td>{item.minimum_rent}</td>
+        </tr>
+        <tr>
+          <td>total</td>
+          <td>{item.maximum_rent*person*day}</td>
+          <td>{item.minimum_rent*person*day}</td>
+        </tr>
+
+        <tr>
+          <td>Booking</td>
+          <td colSpan={2}><a style={{textDecoration: "none", hover:"true"}} href={item.link}>{item.hotel}  </a></td>
+        </tr>
+
+      </tbody>
+    </Table>
+        </Card.Text>
+        {/* <Button variant="primary" onClick={view_cost}>View cost </Button> */}
+      </Card.Body>
+      </Card>
+      </div> 
             </div>
           </div>
       ))}
-
     </div>
   );
 };

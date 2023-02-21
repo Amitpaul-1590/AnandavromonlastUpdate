@@ -129,3 +129,10 @@
   color: red;
 }
 
+.goToExplore{
+  background-color: rgb(149, 255, 0);
+  
+}
+.goToExplore:hover {
+    background: black;
+}

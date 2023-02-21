@@ -118,7 +118,7 @@ export const Home = (props) => {
                 <div className='filter-box'>
                     <h6 className='p_catagory' >Select Your Suiteble place</h6><br/>
                         {spans.map((individualSpan,index)=>(
-                            <span className='filterPlace' key={index} id={individualSpan.id}
+                            <span style={{fontWeight:"bold"}} className='filterPlace' key={index} id={individualSpan.id}
                             onClick={()=>handleChange(individualSpan)}
                             >{individualSpan.text}
                             </span>

@@ -5,19 +5,20 @@ import Login from './Components/Login_registration/Login'
 import About from './Components/About';
 import Signup from './Components/Login_registration/Signup';  
 import NotFound from './Components/NotFound'; 
-import Information from './Components/Information'
+import Information from './Components/Information';
+import { AddPlaces } from './Components/AddPlaces';
+// import {HotelInfo} from './Components/Hotel_Info';
+import Hotel_Info, {roni} from './Components/Hotel_Info'
 import { GiHamburgerMenu } from "react-icons/gi";
 
 
-
-import { AddPlaces } from './Components/AddPlaces'
 import logoImg from './Images/projLogo.png';
 // import emailimg from './Images/email.png';
 // import passimg from './Images/pass.png';
 
 
 import './App.css'; 
-import Hotel_Info from './Components/Hotel_Info';
+// import Hotel_Info from './Components/Hotel_Info';
 
    
 const App = () => {  
@@ -59,6 +60,9 @@ const App = () => {
                   <li>  
                     <p><Link className='link' to="/add-products"> <span  className='barmanu'>Admin</span> </Link></p>  
                   </li> 
+                  {/* <li>  
+                    <p><Link className='link' to="/Hotel_Info"> <span  className='barmanu'>hotel_info</span> </Link></p>  
+                  </li> */}
               </ul>
             </div>
  
@@ -81,7 +85,8 @@ const App = () => {
                  <Route exact path='/Information' element={< Information /> }></Route>
                  <Route Component={NotFound}></Route>              
                  <Route exact path="/add-products" element={<AddPlaces />}/>
-                 <Route exact path="/Hotel_Info" element={<Hotel_Info></Hotel_Info>}></Route>
+                 <Route exact path='/Hotel_Info' element={<Hotel_Info />}></Route>
+                 {/* <Route exact path="/HotelInfo" element={<HotelInfo />} /> */}
                 {/* <Route exact path="/cart" component={Cart}/>        */}        
           </Routes>  
           </div>            
