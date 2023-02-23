@@ -73,7 +73,7 @@ const Hotel_Info = () => {
       {data?.map((item, i) => (
         <div key={i}>
           <h2 id={`heading${i}`}>            
-              <a style={{textDecoration: "none", hover:"true"}} href={item.link}>{item.hotel}  </a>
+              <a style={{textDecoration: "none"}} href={item.link}> {item.hotel}  </a>
           </h2>
           
             <div >

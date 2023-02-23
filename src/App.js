@@ -27,17 +27,18 @@ const App = () => {
     return ( 
        <Router>  
         <div  className="App">   
-          <nav  id='mainNav' className="main-nav ">  
+          <nav  id='mainNav' className="main-nav "  style={{backgroundColor: "skyblue"}}>  
             {/* 1st logo part  */}
               <div className="logoIMG" >
                   <img  src={logoImg} alt="logo" style={{height:"50px", marginTop:"15px"}}/>
               </div>      
             <div   id="navbarONE" 
               style={{
-                
-                
-                
-               
+                backgroundColor: "skyblue",                
+                boxShadow: "revert-layer",
+                borderRadius: "10px",
+                width: "200px",
+                marginLeft: "150px"
 
               }}
               className={ 
@@ -58,9 +59,9 @@ const App = () => {
                   <li>  
                     <p><Link className='link' to="/"><span  className='barmanu'>About</span></Link></p>  
                   </li>  
-                  <li>  
+                  {/* <li>  
                     <p><Link className='link' to="/add-products"> <span  className='barmanu'>Admin</span> </Link></p>  
-                  </li> 
+                  </li>  */}
                   {/* <li>  
                     <p><Link className='link' to="/Street"> <span  className='barmanu'>Street</span> </Link></p>  
                   </li> */}

@@ -18,13 +18,13 @@ const Signup = () => {
     const handleSignup=(e)=>{
         e.preventDefault();
         auth.createUserWithEmailAndPassword(email,password).then((credentials)=>{  //video 3 er 8 min
-            console.log(credentials);
+
             fs.collection('users').doc(credentials.user.uid).set({    //video 3 er 10 min
                 FullName: fullName,
                 Email: email,
                 Password: password
             }).then(()=>{
-                setSuccessMsg('Signup Successfull. You will now automatically get redirected to Login');
+                setSuccessMsg('Successfully Signup');
                 setFullname('');
                 setEmail('');
                 setPassword('');
@@ -50,15 +50,13 @@ const Signup = () => {
                 <div >{successMsg}</div>
                 <br></br>
             </>}
-            <form  className='signupmainform' autoComplete="off" onSubmit={handleSignup}>
-                {/* className='form-group' style={{backgroundColor:'yellow'}} */} 
-                <label className='fullnameLabel'>Full Name</label> 
+            <form  className='signupmainform' autoComplete="off" onSubmit={handleSignup}>                <label className='fullnameLabel'>Full Name</label> 
                 <input className='fullnameInput'  type="text"  placeholder='e.g.abc' required
                  onChange={(e)=>setFullname(e.target.value)} value={fullName}></input>
                 <br></br>
 
                 <label className='emailLabel' >Email</label>
-                <input className='emailInput' type="email"  placeholder= 'e.g.abc@example.com' required
+                <input className='emailInput' type="email"  placeholder= 'amit12@gmail.com' required
                  onChange={(e)=>setEmail(e.target.value)} value={email}></input>
                 <br></br>
                 <label className='passwordLabel' >Password</label>

@@ -114,37 +114,10 @@ export const IndividualProduct = ({individualProduct}) => {
                </Card.Body>
               </Card>
             </div> 
-
-            // <div className='product-img' style={{}}>
-            // <h1 className='photoCard'><a style={{}} href={individualProduct.map_link}><img  style={{borderRadius:"10px",boxShadow:"5px",margin:"0px"}}  src={individualProduct.url} alt="product-img"/>  </a></h1>
-            // </div>
-            // <h4 className='cardTitle'><a style={{textDecoration: 'none'}} href={individualProduct.web_link}>{individualProduct.title}  </a></h4>
-            // <a href={individualProduct.information1}>Sheet</a>
-            // <div className='product-text description'>{individualProduct.description}</div>
-            // <p className='cardTitle'><a style={{textDecoration: 'none'}} href={individualProduct.information1}>Json sheet</a></p>
-            // <div>
-            
-            // </div>
-            // <div className='btn btn-danger btn-md cart-btn' onClick={view_cost}>View cost </div>    */}
-            //   {/* </Card>              
+             
         
     )
    }      
 
-   //import Card from 'react-bootstrap/Card';     
-
-
-      //   <div style={{margin:"10px"}}>
-      // <Card style={{ width: '18rem' }}>      
-      //  <a href={individualProduct.map_link}><Card.Img variant="top" src={individualProduct.url} alt="product-img" />  </a>
-      //  <Card.Body>
-      //  <a style={{textDecoration: "none"}} href={individualProduct.web_link}> <Card.Title >{individualProduct.title}</Card.Title></a>
-      //   <Card.Text>{individualProduct.description}</Card.Text>
-      //   <Button variant="primary" onClick={view_cost}>View cost </Button>
-      // </Card.Body>
-      // </Card>
-      // </div> 
-
-      
 
       

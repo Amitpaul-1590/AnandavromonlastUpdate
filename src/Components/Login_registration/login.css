@@ -14,7 +14,7 @@
 .heading1{
     font-size: 30px;
     font-weight: bold;
-    color: red;
+    color: #1a3860;
     margin-bottom: 10px;
     text-align: center;
     text-shadow: blue;
@@ -28,7 +28,7 @@
 
 .emailLabel{
 
-    color: #B4886B;
+    color: gray;
     font-weight: bold;
     display: block;
     /* text-align: center; */
@@ -43,8 +43,8 @@
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: #3CBC8D;
-    color: white;
+    background-color:#8f8e8e83;
+    color: black;
     border-radius: 20px;
     /* padding-left: 80px; */
     font-size: 20px;
@@ -55,7 +55,7 @@
 }
 
 .passLabel{
-    color: #B4886B;
+    color: gray;
     font-weight: bold;
     display: block;
     margin-left: 40px;
@@ -70,8 +70,8 @@
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: #3CBC8D;
-    color: white;
+    background-color:#8f8e8e83;
+    color: black;
     border-radius: 20px;
     box-shadow: 0 0 20px 0px rgba(85, 0, 0, 0.2);
     width: 80%;
@@ -81,7 +81,7 @@
 }
 
 .loginbutton{
-   background-color: brown;
+   background-color: rgba(255, 166, 0, 0.675);
    width: 100%;
    padding: 12px 20px;
    margin: 8px 0;

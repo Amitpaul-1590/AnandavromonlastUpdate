@@ -72,7 +72,7 @@ li {
   height: 10rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: end;
 }
 
 .social-media {

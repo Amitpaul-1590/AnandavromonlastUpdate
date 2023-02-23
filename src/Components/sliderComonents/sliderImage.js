@@ -1,27 +1,26 @@
-import First from "./assets/First.jpg";
-import Second from "./assets/Second.jpg";
-import Third from "./assets/Third.jpg";
-
+// import First from "./assets/First.jpg";
+// import Second from "./assets/Second.jpg";
+// import Third from "./assets/Third.jpg";
 export default [
   {
-    urls: First,
+    urls: "https://www.bdstall.com/asset/product-image/giant_62621.jpg",
   },
   {
-    urls: Second,
+    urls: "https://cdn.jagonews24.com/media/imgAllNew/BG/2016October/bichanakandi-B20161204105541.jpg",
   },
   {
-    urls: Third,
+    urls: "https://plantlet.org/wp-content/uploads/2020/06/SAVE_20200617_160556.jpg"
   },
   {
-    urls: "https://images.unsplash.com/photo-1513350949-6bd4ab6ff7f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHw%3D&w=1000&q=80",
+    urls: "https://ak-d.tripcdn.com/images/1i64d120009uxwnod871C.jpg?proc=source/trip",
   },
   {
-    urls: "https://images.unsplash.com/photo-1533850595620-7b1711221751?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dHJhdmVsbGluZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    urls: "https://www.travelandexplorebd.com/storage/app/public/posts/April2020/41.jpg",
   },
   {
-    urls: "https://thumbs.dreamstime.com/z/group-young-friends-hiking-countryside-multiracial-happy-people-travelling-nature-traveling-140002686.jpg",
+    urls: "https://porzoton.com/wp-content/uploads/2020/09/Tanguar-Haor.jpg",
   },
   {
-    urls: "https://mdbootstrap.com/img/Photos/Slides/img%20(102).jpg",
+    urls: "https://qph.cf2.quoracdn.net/main-qimg-27b74f8fd5f3b700788c3c76ae7f74f1-lq",
   },
 ];

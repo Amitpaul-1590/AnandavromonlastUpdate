@@ -70,21 +70,18 @@ export const Login = () => {
         
          <form className='mainform' onSubmit={handleLogin}>  
             <div >
-                <label className='emailLabel'> Email</label>
-                {/* import { FaBeer } from 'react-icons/fa'; */}
-                 {/* <h3> Lets go for a <IconName />? </h3> */}
-                 <i class="fa-solid fa-flag"></i>
-               {/* <img className='emailimg' src={emailimg} alt="emailimg"></img> */}
-                <input className='emailInput'  type="email"  placeholder='e.g.abc@example.com' required
-                onChange={(e)=>setEmail(e.target.value)} value={email}>      
+                <label className='emailLabel'> Email</label>{/* <img className='emailimg' src={emailimg} alt="emailimg"></img> */}
+                <input className='emailInput'  type="email"  placeholder='Email' required
+                 onChange={(e)=>setEmail(e.target.value)} value={email}>      
                 </input>
+                {/* onChange={(e)=>setEmail(e.target.value)} */}
             </div>             
             {/* ---------------------- */}
             <br/>
            <div >
            <label className='passLabel' >Password</label>
            {/* <img className='passimg' src={passimg} alt="emailimg"></img> */}
-            <input className='passInput' type="password"  placeholder='password' required
+            <input className='passInput' type="password"  placeholder='Password' required
             onChange={(e)=>setPassword(e.target.value)} value={password}>
                 
             </input>
@@ -100,7 +97,7 @@ export const Login = () => {
             <br></br>
             <br></br>
             <div>
-                <p >Don't have an account?<Link className='downsignup' to="/signup" >Signup</Link></p>
+                <p  style={{marginLeft:"15px",color:"black"}}>Don't have an account?<Link className='downsignup' to="/signup" >Signup</Link></p>
             </div>
                              
         </form>
