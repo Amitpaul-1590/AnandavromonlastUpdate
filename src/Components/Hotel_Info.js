@@ -25,8 +25,6 @@ const Hotel_Info = () => {
         setOpen(!open);
         
   }
-  console.log(location.state.sheet_link);
-
   const getData = async () => {
     try {
       const res = await fetch(

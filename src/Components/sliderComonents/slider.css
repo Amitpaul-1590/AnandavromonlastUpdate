@@ -130,8 +130,12 @@
 }
 
 .goToExplore{
-  background-color: rgb(149, 255, 0);
-  
+  background-color: skyblue;
+  margin-left: 35%;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: bold;  
 }
 .goToExplore:hover {
     background: black;

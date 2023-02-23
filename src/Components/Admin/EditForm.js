@@ -125,7 +125,7 @@ const handleUpdatePlaceInformation = async (e) => {
                 onChange={(e)=>setWeb_link(e.target.value)} value={web_link}></input>
                 <br></br>
 
-                <label>Sheet Link</label>
+                <label>Json Sheet Link</label>
                 <input style={{backgroundColor:"#BFA047", color:"white", borderRadius:"50px"}} type="text" className='form-control' 
                 onChange={(e)=>setSheet_link(e.target.value)} value={sheet_link}></input>
                 <br></br>
@@ -135,7 +135,7 @@ const handleUpdatePlaceInformation = async (e) => {
                 onChange={(e)=>setMap_link(e.target.value)} value={map_link}></input>
                 <br></br>
 
-                <label>Sheet link json formate</label>
+                <label>Sheet link</label>
                 <input style={{backgroundColor:"#BFA047", color:"white",borderRadius:"50px" }} type="text" className='form-control' 
                 onChange={(e)=>setInformation1(e.target.value)} value={information1}></input>
                 

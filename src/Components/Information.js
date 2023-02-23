@@ -13,31 +13,23 @@ import Street from './Street';
 
 const Information = () => {
   const [person, setPerson]=useState(0);
-  const [day, setDay]=useState(0);
   const [data, setData] = useState();
   const [open, setOpen] = useState(false);
 
   // modal
-
   const [show, setShow] = useState(false);
-  const [formid, setFormid] = useState([]);  //""
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-      const description = (roni) => {
-      const data = {
-        roni: roni,
-      };
-      setFormid(data);
-      handleShow();
-    }
-
-
+  const [showTrain, setShowTrain] = useState(false);
+  const handleCloseTrain = () => setShowTrain(false);
+  const handleShowTrain = () => setShowTrain(true);
   // modal
 
   const location = useLocation();
 
-  const amit = (open, button_index) => {
+  const collapse_open_function = (open, button_index) => {
       console.log(open);
       console.log(button_index);
       
@@ -89,11 +81,14 @@ const Information = () => {
 
       {data?.map((item, i) => (
         <div id={`heading${i}`} key={i} >
-          <br/>                                     
+          <br/>
+          {console.log(item)}
+          {console.log(item.Street_cost_min_train
+)}                                     
         <Button
         style={{backgrondColor:"white"}}
         id={`roni${i}`}
-        onClick={() => amit(open, i)}
+        onClick={() => collapse_open_function(open, i)}
         aria-controls="example-collapse-text"
         // style={{backgroundColor:"red",alignItems:"center"}}
         aria-expanded={open}
@@ -103,60 +98,58 @@ const Information = () => {
       <Collapse  in={open}>
           
       <div style={{margin:"10px"}}>
-      <Card style={{ width: '18rem' }}>      
-       {/* <a href={individualFilteredProduct.map_link}><Card.Img variant="top" src={individualFilteredProduct.url} alt="product-img" />  </a> */}
+      <Card style={{ width: '' }}>      
        <Card.Body>
         <Card.Title >{item.Heading}</Card.Title>
         <Card.Text>
-              {/* <p>Bus price   : {item.Bus}  <br></br> total: {item.Bus*person*2} </p>                 
-              <p style={{marginLeft: "30px"}}><a style={{textDecoration: "none"}} href={item.information1}>map</a> </p>
-              <p>Train price :{item.Train} <br></br> total: {item.Train*person*2}</p>  
-              <p style={{marginLeft: "30px"}}><a style={{textDecoration: "none"}} href={item.information1}>map</a> </p> */}
     <Table striped bordered hover>
       <thead>
         <tr>
           <th>Info</th>
-          <th>Bus</th>
-          <th>Train</th>
+          <th><a style={{textDecoration: "none"}} href={item.bus_distance}> Bus  </a></th>
+          <th><a style={{textDecoration: "none"}} href={item.train_distance}> Train  </a></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>price</td>
-          <td>{item.Bus}</td>
-          <td>{item.Train}</td>
+          <td>{item.Bus_max} to {item.Bus_min}</td>
+          <td>{item.Train_max} to {item.Train_min}</td>
         </tr>
         <tr>
           <td>total</td>
-          <td>{item.Bus*person*2}</td>
-          <td>{item.Train*person*2}</td>
+          <td>{item.Bus_max*person*2} to {item.Bus_min*person*2}</td>
+          <td>{item.Train_max*person*2} to {item.Train_min*person*2}</td>
+        </tr>
+
+        <tr>
+          <td>Street</td>
+          <td><Button onClick={handleShow}>{item.Street_cost_bus_max*person*2 } </Button></td>
+          <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{item.Street_Bus}</Modal.Title>
+        </Modal.Header>
+        {console.log(item.Street_Bus)}
+        <h1>{item.Bus}</h1>
+        <Modal.Body>{item.Street_Bus}</Modal.Body>                 
+        </Modal>
+
+        
+          <td><Button onClick={handleShowTrain}>{item.Street_cost_train_max*person*2}</Button></td>
+          <Modal show={showTrain} onHide={handleCloseTrain}>
+        <Modal.Header closeButton>
+          <Modal.Title>How to go</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{item.Street_Train}</Modal.Body>                 
+        </Modal>
         </tr>
         <tr>
-          <td>Map</td>
-          <td><a href='https://goo.gl/maps/qFw1KJmUurn5jZmC9'></a></td>
-          <td>{item.Train*person*2}</td>
+
+          <td>total</td>
+          <td>{parseInt(item.Bus_max  ) + parseInt(item.Street_cost_bus_max  )} to {parseInt(item.Bus_min)+parseInt(item.Street_cost_bus_max)}</td>
+          <td>{parseInt(item.Train_max) + parseInt(item.Street_cost_train_max)} to {parseInt(item.Train_min)+parseInt(item.Street_cost_train_max)}</td>
         </tr>
-        <tr>
-          <td>desp</td>
-          <td><Button 
-                  variant="primary" 
-                  onClick={() => {
-                    description(
-                      item.Bus
-                    );
-                  }}>
-                    Go
-                  </Button>
-                  <Modal show={show} onHide={handleClose}>
-                    <Street closeEvent={handleClose} fid={formid} />
-                  </Modal></td>
-          <td><Button>Go</Button></td>
-        </tr>
-        {/* <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr> */}
+
       </tbody>
 
     </Table>
