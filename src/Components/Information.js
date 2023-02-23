@@ -30,8 +30,6 @@ const Information = () => {
   const location = useLocation();
 
   const collapse_open_function = (open, button_index) => {
-      console.log(open);
-      console.log(button_index);
       
         setOpen(!open);
         
@@ -81,10 +79,7 @@ const Information = () => {
 
       {data?.map((item, i) => (
         <div id={`heading${i}`} key={i} >
-          <br/>
-          {console.log(item)}
-          {console.log(item.Street_cost_min_train
-)}                                     
+          <br/>                        
         <Button
         style={{backgrondColor:"white"}}
         id={`roni${i}`}
@@ -126,24 +121,22 @@ const Information = () => {
           <td>Street</td>
           <td><Button onClick={handleShow}>{item.Street_cost_bus_max*person*2 } </Button></td>
           <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{item.Street_Bus}</Modal.Title>
-        </Modal.Header>
-        {console.log(item.Street_Bus)}
-        <h1>{item.Bus}</h1>
-        <Modal.Body>{item.Street_Bus}</Modal.Body>                 
-        </Modal>
+          <Modal.Header closeButton>
+          <Modal.Title>How to go</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{item.Street_Bus}</Modal.Body>                 
+          </Modal>
 
         
           <td><Button onClick={handleShowTrain}>{item.Street_cost_train_max*person*2}</Button></td>
           <Modal show={showTrain} onHide={handleCloseTrain}>
-        <Modal.Header closeButton>
+          <Modal.Header closeButton>
           <Modal.Title>How to go</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{item.Street_Train}</Modal.Body>                 
-        </Modal>
-        </tr>
-        <tr>
+          </Modal.Header>
+          <Modal.Body>{item.Street_Train}</Modal.Body>                 
+          </Modal>
+          </tr>
+          <tr>
 
           <td>total</td>
           <td>{parseInt(item.Bus_max  ) + parseInt(item.Street_cost_bus_max  )} to {parseInt(item.Bus_min)+parseInt(item.Street_cost_bus_max)}</td>
@@ -156,7 +149,6 @@ const Information = () => {
      <Button variant="primary" style={{width: "100%"}} onClick={hotel_cost}>Hotel cost </Button>
 
         </Card.Text>
-        {/* <Button variant="primary" onClick={view_cost}>View cost </Button> */}
       </Card.Body>
       </Card>
       </div> 
