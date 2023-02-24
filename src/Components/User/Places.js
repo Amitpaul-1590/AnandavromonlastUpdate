@@ -1,15 +1,15 @@
 //user
-import {IndividualProduct} from './IndividualPlace'
+import {IndividualPlace} from './IndividualPlace'
 import React from 'react'
 
-export const Products = ({products}) => { 
+export const Places = ({products}) => { 
     
     return products.map((individualProduct)=>(
-        <IndividualProduct 
+        <IndividualPlace 
             key = {individualProduct.ID} 
             individualProduct= {individualProduct}
         />
     ))
 }
 
-export default Products;
+export default Places;

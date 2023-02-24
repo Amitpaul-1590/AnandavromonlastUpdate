@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-export const IndividualFilteredProduct = ({individualFilteredProduct}) => {
+export const IndividualFilteredPlace = ({individualFilteredProduct}) => {
     const sheet_link = individualFilteredProduct.sheet_link;
     const web_link   = individualFilteredProduct.web_link;
     const map_link   = individualFilteredProduct.map_link;

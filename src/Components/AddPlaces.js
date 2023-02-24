@@ -2,8 +2,8 @@
 
 import React,{useState, useEffect} from 'react'
 import { Navbar } from './Navbar'
-import { Products } from './Admin/Places'
-import { IndividualFilteredProduct } from './Admin/IndividualFilteredPlaces'
+import { Places } from './Admin/Places'
+import { IndividualFilteredPlace } from './Admin/IndividualFilteredPlaces'
 import {db} from '../Config/Config';
 import {storage,fs} from '../Config/Config'
 import './addplace.css';
@@ -271,7 +271,7 @@ export const AddPlaces = () => {
                       <a  onClick={returntoAllProducts}>Return to All Place</a>
                       <div className='products-box'>
                           {filteredProducts.map(individualFilteredProduct=>(
-                              <IndividualFilteredProduct 
+                              <IndividualFilteredPlace 
                                 key={individualFilteredProduct.ID}
                                 individualFilteredProduct={individualFilteredProduct}                   
                             />
@@ -285,7 +285,7 @@ export const AddPlaces = () => {
                             <div className='my-products'>
                                 <h1 className='text-center'>All Places</h1>
                                 <div className='products-box'>
-                                    <Products products={products} />
+                                    <Places products={products} />
                                 </div>
                             </div>
                         )}

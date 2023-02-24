@@ -18,7 +18,7 @@ import EditForm from './EditForm';
 import Card from 'react-bootstrap/Card';  
 
 //https://console.firebase.google.com/u/0/project/project-716fb/firestore/data/~2FProducts~2F0niOg7PevkU3juJF0Gex
-export const IndividualProduct = ({individualProduct}) => {
+export const IndividualPlace = ({individualProduct}) => {
 //modal
 
   const [show, setShow] = useState(false);

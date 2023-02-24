@@ -16,7 +16,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 //https://console.firebase.google.com/u/0/project/project-716fb/firestore/data/~2FProducts~2F0niOg7PevkU3juJF0Gex
-export const IndividualProduct = ({individualProduct}) => {
+export const IndividualPlace = ({individualProduct}) => {
     const sheet_link = individualProduct.sheet_link;
     const web_link   = individualProduct.web_link;
     const map_link   = individualProduct.map_link;

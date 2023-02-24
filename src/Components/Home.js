@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { Navbar } from './Navbar'
-import { Products } from './User/Places'
-import { IndividualFilteredProduct } from './User/IndividualFilteredPlaces'
+import { Places } from './User/Places'
+import { IndividualFilteredPlace } from './User/IndividualFilteredPlaces'
 import {auth,fs} from '../Config/Config'
 export const Home = (props) => {
 
@@ -122,8 +122,7 @@ export const Home = (props) => {
                             onClick={()=>handleChange(individualSpan)}
                             >{individualSpan.text}
                             </span>
-                        ))}
-                    
+                        ))}                    
                 </div>
                 {filteredProducts.length > 0&&(
                   <div className='my-products'>
@@ -131,7 +130,7 @@ export const Home = (props) => {
                       <a href="javascript:void(0)" onClick={returntoAllProducts}>Return to All places</a>
                       <div className='products-box'>
                           {filteredProducts.map(individualFilteredProduct=>(
-                              <IndividualFilteredProduct key={individualFilteredProduct.ID}
+                              <IndividualFilteredPlace key={individualFilteredProduct.ID}
                               individualFilteredProduct={individualFilteredProduct}
                             />
                           ))}
@@ -144,7 +143,7 @@ export const Home = (props) => {
                             <div className='my-products'>
                                 <h1 style={{color:"red"}} className='text-center'>All Places</h1>
                                 <div className='products-box'>
-                                    <Products products={products} />
+                                    <Places products={products} />
                                 </div>
                             </div>
                         )}
