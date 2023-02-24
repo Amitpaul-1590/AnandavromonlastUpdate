@@ -146,7 +146,7 @@ const Information = () => {
       </tbody>
 
     </Table>
-     <Button variant="primary" style={{width: "40%", marginLeft:"30%", marginRight:"30%", backgroundColor: "pink", boxShadow: "revert", padding: "0px", color: "Black"}} onClick={hotel_cost}>Hotel cost </Button>
+     <Button variant="primary" style={{width: "40%", marginLeft:"30%", marginRight:"30%", backgroundColor: "pink", boxShadow: "revert", padding: "3px", color: "Black"}} onClick={hotel_cost}>Hotel cost </Button>
 
         </Card.Text>
       </Card.Body>
