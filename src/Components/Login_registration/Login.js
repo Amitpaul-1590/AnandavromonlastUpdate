@@ -6,14 +6,13 @@ import { useNavigate } from 'react-router-dom';
 // import AddProducts from './AddProducts'
 import './login.css';
 import {auth} from '../../Config/Config'
-import { IconName } from "react-icons/fa";
+import { AiOutlineMail, FaFacebook } from "react-icons/fa";
 
 
 
 
 export const Login = () => {
 
-    //const history = useHistory();
     const navigate = useNavigate();
 
     const [email, setEmail]=useState('');
@@ -27,7 +26,7 @@ export const Login = () => {
     const handleLogin=(e)=>{
         if (email==="admin@gmail.com" && password === "admin@gmail.com") {  //jodi admin hoy      
             e.preventDefault();      
-         setSuccessMsg('Admin Login Successfull. You will now automatically get redirected to Admin page');
+         setSuccessMsg('Admin Login Successfull');
             setEmail('');   //sob gula text field ke 0 kore ibo
             setPassword('');
             setErrorMsg('');
@@ -69,18 +68,16 @@ export const Login = () => {
         </>}
         
          <form className='mainform' onSubmit={handleLogin}>  
-            <div >
-                <label className='emailLabel'> Email</label>{/* <img className='emailimg' src={emailimg} alt="emailimg"></img> */}
+            <div >               
+                <label className='emailLabel'>  Email</label>{/* <img className='emailimg' src={emailimg} alt="emailimg"></img> */}
                 <input className='emailInput'  type="email"  placeholder='Email' required
                  onChange={(e)=>setEmail(e.target.value)} value={email}>      
                 </input>
-                {/* onChange={(e)=>setEmail(e.target.value)} */}
             </div>             
             {/* ---------------------- */}
             <br/>
            <div >
            <label className='passLabel' >Password</label>
-           {/* <img className='passimg' src={passimg} alt="emailimg"></img> */}
             <input className='passInput' type="password"  placeholder='Password' required
             onChange={(e)=>setPassword(e.target.value)} value={password}>
                 

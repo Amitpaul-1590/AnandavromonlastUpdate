@@ -81,7 +81,7 @@ const Information = () => {
         <div id={`heading${i}`} key={i} >
           <br/>                        
         <Button
-        style={{backgrondColor:"white"}}
+        style={{backgrondColor:"white", width: "100%"}}
         id={`roni${i}`}
         onClick={() => collapse_open_function(open, i)}
         aria-controls="example-collapse-text"
@@ -90,7 +90,7 @@ const Information = () => {
         >
         {item.Place} 
       </Button>
-      <Collapse  in={open}>
+      <Collapse  in={open} style={{backgrondColor: "pink"}}>
           
       <div style={{margin:"10px"}}>
       <Card style={{ width: '' }}>      
@@ -146,7 +146,7 @@ const Information = () => {
       </tbody>
 
     </Table>
-     <Button variant="primary" style={{width: "100%"}} onClick={hotel_cost}>Hotel cost </Button>
+     <Button variant="primary" style={{width: "40%", marginLeft:"30%", marginRight:"30%", backgroundColor: "pink", boxShadow: "revert"}} onClick={hotel_cost}>Hotel cost </Button>
 
         </Card.Text>
       </Card.Body>

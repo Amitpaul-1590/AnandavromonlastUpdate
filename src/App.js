@@ -9,7 +9,7 @@ import Information from './Components/Information';
 import { AddPlaces } from './Components/AddPlaces';
 // import {HotelInfo} from './Components/Hotel_Info';
 import Hotel_Info from './Components/Hotel_Info'
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiFogLight, GiHamburgerMenu } from "react-icons/gi";
 import Street from './Components/Street'
 
 
@@ -34,7 +34,7 @@ const App = () => {
               </div>      
             <div   id="navbarONE" 
               style={{
-                backgroundColor: "skyblue",                
+                backgroundColor: "lightskyblue",                
                 boxShadow: "revert-layer",
                 borderRadius: "10px",
                 width: "200px",

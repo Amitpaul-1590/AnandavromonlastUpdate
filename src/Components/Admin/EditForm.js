@@ -15,9 +15,6 @@ import {
 import { type } from '@testing-library/user-event/dist/type';
 
 const EditForm = ({closeEvent, fid}) => {
-  console.log(fid)
-  console.log(fid.sheet_link)
-  console.log(typeof(fid.web_link))
   const id = fid.id;
   const [title, setTitle]=useState(fid.title);
   const [description, setDescription]=useState(fid.description);
@@ -26,46 +23,6 @@ const EditForm = ({closeEvent, fid}) => {
   const [sheet_link, setSheet_link]=useState(fid.sheet_link);
   const [map_link, setMap_link] = useState(fid.map_link);  //link ke declear kora hoilo
   const [information1, setInformation1]=useState(fid.information1);
-  
-
-        // useEffect(()=>{
-        //     setTitle(fid.title);
-        //     setDescription(fid.description);
-        //     setCategory(fid.category);
-        //     setWeb_link(fid.web_link);
-        //     setSheet_link(fid.sheet_link);
-        //     setMap_link(fid.map_link);
-        //     setInformation1(fid.information1);
-        // },[]);
-
-        // const handleUpdatePlaceInformation = async () => {
-        //   console.log("update");
-        //   const userDoc = doc(db, "Places", fid.id);
-        //   const newFields = {
-        //     title: title,
-        //     description: description,
-        //   };
-        //   await updateDoc(userDoc, newFields);
-        //   closeEvent();
-          
-        // }
-
-        //  const handleUpdatePlaceInformation = async () => {
-        //   console.log("update");
-        //   const userDoc = doc(db, "Places", fid.id);
-        //   const newFields = {
-        //     title: fid.title,
-        //     description: fid.description,
-        //     category: fid.category,
-        //     web_link: fid.web_link,
-        //     sheet_link: fid.sheet_link,
-        //     map_link: fid.map_link,
-        //     information1: fid.information1
-        //   };
-        //   await updateDoc(userDoc, newFields);
-        //   closeEvent();
-        //   // let ref = firebase.ref('Places');
-        // }
 
 
 const handleUpdatePlaceInformation = async (e) => {
@@ -113,7 +70,6 @@ const handleUpdatePlaceInformation = async (e) => {
                     <option>Sea beach</option>
                     <option>Old place</option>
                     <option>Forest</option>
-                    {/* <option>Park</option>    */}
                
                 </select>
 

@@ -1,6 +1,7 @@
 .Addplace{
-    color: blueviolet;
+    color: #1a3860;
     text-align: center;
+    font-weight: bold;
 }
 
 .addplaceContainer{
@@ -18,7 +19,7 @@
 
 
 .visitingPlaceLabel{
-    color: blueviolet;
+    color:gray;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -37,12 +38,12 @@
     box-sizing: border-box;
     border: none;
     background-color: bisque;
-    color:gray;
+    color:black;
     border-radius: 20px;
 }
 
 .label2{
-    color: blueviolet;
+    color:gray;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -60,12 +61,12 @@
     box-sizing: border-box;
     border: none;
     background-color: bisque;
-    color:gray;
+    color:black;;
     border-radius: 20px;
 }
 
 .label3{
-    color: blueviolet;
+    color: gray;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -93,7 +94,7 @@
 }
 
 .label4{
-    color: blueviolet;
+    color:gray;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -116,7 +117,7 @@
 }
 
 .label5{
-    color: blueviolet;
+    color: gray;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -133,12 +134,12 @@
     box-sizing: border-box;
     border: none;
     background-color: bisque;
-    color:gray;
+    color:black;;
     border-radius: 20px;
 }
 
 .label6{
-    color: blueviolet;
+    color: gray;;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -157,12 +158,12 @@
     box-sizing: border-box;
     border: none;
     background-color: bisque;
-    color:gray;
+    color:black;;
     border-radius: 20px;
 }
 
 .label7{
-    color: blueviolet;
+    color: gray;;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -182,12 +183,12 @@
     box-sizing: border-box;
     border: none;
     background-color: bisque;
-    color:gray;
+    color:black;;
     border-radius: 20px;
 }
 
 .label8{
-    color: blueviolet;
+    color: gray;;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -206,12 +207,12 @@
     box-sizing: border-box;
     border: none;
     background-color: bisque;
-    color:gray;
+    color:black;;
     border-radius: 20px;
 }
 
 .label9{
-    color: blueviolet;
+    color: gray;;
     font-size: 15px;
     font-weight: bold;
     /* margin-top: 10px; */
@@ -232,6 +233,7 @@
     border: none;
    background-color: bisque;
     border-radius: 20px;
+    color: black;
 }
 
 .informationSubmit{
@@ -365,3 +367,5 @@
     font-weight: bold;
    
   } */
+
+
