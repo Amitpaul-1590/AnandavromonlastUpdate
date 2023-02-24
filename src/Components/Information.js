@@ -113,22 +113,22 @@ const Information = () => {
         </tr>
         <tr>
           <td>total</td>
-          <td>{item.Bus_max*person*2} to {item.Bus_min*person*2}</td>
-          <td>{item.Train_max*person*2} to {item.Train_min*person*2}</td>
+          <td>{item.Bus_max*person} to {item.Bus_min*person}</td>
+          <td>{item.Train_max*person} to {item.Train_min*person}</td>
         </tr>
 
         <tr>
           <td>Street</td>
-          <td><Button onClick={handleShow}>{item.Street_cost_bus_max*person*2 } </Button></td>
+          <td><Button onClick={handleShow}>{item.Street_cost_bus_max*person } </Button></td>
           <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-          <Modal.Title>How to go</Modal.Title>
+          <Modal.Title>How to go after taking off the bus</Modal.Title>
           </Modal.Header>
-          <Modal.Body>{item.Street_Bus}</Modal.Body>                 
+          <Modal.Body>{item.Street_Bus}. <b/>So total taka for {person} persons is {person*item.Street_cost_bus_max} taka</Modal.Body>                 
           </Modal>
 
         
-          <td><Button onClick={handleShowTrain}>{item.Street_cost_train_max*person*2}</Button></td>
+          <td><Button onClick={handleShowTrain}>{item.Street_cost_train_max*person}</Button></td>
           <Modal show={showTrain} onHide={handleCloseTrain}>
           <Modal.Header closeButton>
           <Modal.Title>How to go</Modal.Title>
@@ -146,7 +146,7 @@ const Information = () => {
       </tbody>
 
     </Table>
-     <Button variant="primary" style={{width: "40%", marginLeft:"30%", marginRight:"30%", backgroundColor: "pink", boxShadow: "revert"}} onClick={hotel_cost}>Hotel cost </Button>
+     <Button variant="primary" style={{width: "40%", marginLeft:"30%", marginRight:"30%", backgroundColor: "pink", boxShadow: "revert", padding: "0px", color: "Black"}} onClick={hotel_cost}>Hotel cost </Button>
 
         </Card.Text>
       </Card.Body>
