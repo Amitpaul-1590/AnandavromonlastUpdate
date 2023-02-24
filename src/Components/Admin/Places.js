@@ -1,12 +1,12 @@
 import React from 'react'
 import {IndividualPlace} from './IndividualPlace'
 
-export const Places = ({products}) => {
+export const Places = ({places}) => {
     
-    return products.map((individualProduct)=>(
+    return places.map((individualPlace)=>(
         <IndividualPlace 
-            key = {individualProduct.ID} 
-            individualProduct= {individualProduct}
+            key = {individualPlace.ID} 
+            individualPlace= {individualPlace}
         />
     ))
 }

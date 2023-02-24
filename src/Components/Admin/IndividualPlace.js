@@ -18,7 +18,7 @@ import EditForm from './EditForm';
 import Card from 'react-bootstrap/Card';  
 
 //https://console.firebase.google.com/u/0/project/project-716fb/firestore/data/~2FProducts~2F0niOg7PevkU3juJF0Gex
-export const IndividualPlace = ({individualProduct}) => {
+export const IndividualPlace = ({individualPlace}) => {
 //modal
 
   const [show, setShow] = useState(false);
@@ -30,16 +30,16 @@ export const IndividualPlace = ({individualProduct}) => {
 
 
 
-    const sheet_link = individualProduct.sheet_link;
-    const web_link   = individualProduct.web_link;
-    const map_link   = individualProduct.map_link;
+    const sheet_link = individualPlace.sheet_link;
+    const web_link   = individualPlace.web_link;
+    const map_link   = individualPlace.map_link;
     const navigate = useNavigate(); 
 
     const view_cost=()=>{
           navigate(
             '/Information' ,
             {state :
-              {sheet_link : individualProduct.sheet_link }
+              {sheet_link : individualPlace.sheet_link }
             }
             
           );
@@ -74,17 +74,17 @@ export const IndividualPlace = ({individualProduct}) => {
     return (
             <div style={{margin:"10px", backgroundColor:"red", boxShadow: "inherit"}}>   
               <Card style={{ width: '18rem' }}>      
-               <a href={individualProduct.map_link}><Card.Img variant="top" src={individualProduct.url} alt="product-img" />  </a>
+               <a href={individualPlace.map_link}><Card.Img variant="top" src={individualPlace.url} alt="product-img" />  </a>
                <Card.Body>
-                <a style={{textDecoration: "none"}} href={individualProduct.web_link}> <Card.Title >{individualProduct.title}</Card.Title></a>
-                <a style={{textDecoration: "none"}} href={individualProduct.information1}>Sheet</a>
-                <Card.Text>{individualProduct.description}</Card.Text>
+                <a style={{textDecoration: "none"}} href={individualPlace.web_link}> <Card.Title >{individualPlace.title}</Card.Title></a>
+                <a style={{textDecoration: "none"}} href={individualPlace.information1}>Sheet</a>
+                <Card.Text>{individualPlace.description}</Card.Text>
 
                 {/* buttons */}
                 <div>
                   <Button 
                     onClick={() => {
-                      deletePlace(individualProduct.ID);
+                      deletePlace(individualPlace.ID);
                     }}
                   >{" "}
                     Delt
@@ -94,15 +94,15 @@ export const IndividualPlace = ({individualProduct}) => {
                   variant="primary" 
                   onClick={() => {
                     editData(
-                      individualProduct.ID, 
-                      individualProduct.title,
-                      individualProduct.description,
-                      individualProduct.category,
-                      individualProduct.web_link,
-                      individualProduct.sheet_link,
-                      individualProduct.map_link,
-                      individualProduct.information1,
-                      individualProduct.img
+                      individualPlace.ID, 
+                      individualPlace.title,
+                      individualPlace.description,
+                      individualPlace.category,
+                      individualPlace.web_link,
+                      individualPlace.sheet_link,
+                      individualPlace.map_link,
+                      individualPlace.information1,
+                      individualPlace.img
                     );
                   }}>
                     edit

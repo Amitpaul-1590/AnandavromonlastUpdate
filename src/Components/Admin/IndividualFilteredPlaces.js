@@ -18,7 +18,7 @@ import EditForm from './EditForm';
 import Card from 'react-bootstrap/Card';  
 
 //https://console.firebase.google.com/u/0/project/project-716fb/firestore/data/~2FProducts~2F0niOg7PevkU3juJF0Gex
-export const IndividualFilteredPlace = ({individualFilteredProduct}) => {
+export const IndividualFilteredPlace = ({individualFilteredPlace}) => {
 //modal
 
   const [show, setShow] = useState(false);
@@ -30,16 +30,16 @@ export const IndividualFilteredPlace = ({individualFilteredProduct}) => {
 
 
 
-    const sheet_link = individualFilteredProduct.sheet_link;
-    const web_link   = individualFilteredProduct.web_link;
-    const map_link   = individualFilteredProduct.map_link;
+    const sheet_link = individualFilteredPlace.sheet_link;
+    const web_link   = individualFilteredPlace.web_link;
+    const map_link   = individualFilteredPlace.map_link;
     const navigate = useNavigate(); 
 
     const view_cost=()=>{
           navigate(
             '/Information' ,
             {state :
-              {sheet_link : individualFilteredProduct.sheet_link }
+              {sheet_link : individualFilteredPlace.sheet_link }
             }
             
           );
@@ -74,17 +74,17 @@ export const IndividualFilteredPlace = ({individualFilteredProduct}) => {
     return (
             <div style={{margin:"10px"}}>   
               <Card style={{ width: '18rem' }}>      
-               <a href={individualFilteredProduct.map_link}><Card.Img variant="top" src={individualFilteredProduct.url} alt="product-img" />  </a>
+               <a href={individualFilteredPlace.map_link}><Card.Img variant="top" src={individualFilteredPlace.url} alt="product-img" />  </a>
                <Card.Body>
-                <a style={{textDecoration: "none"}} href={individualFilteredProduct.web_link}> <Card.Title >{individualFilteredProduct.title}</Card.Title></a>
-                <a style={{textDecoration: "none"}} href={individualFilteredProduct.information1}>Sheet</a>
-                <Card.Text>{individualFilteredProduct.description}</Card.Text>
+                <a style={{textDecoration: "none"}} href={individualFilteredPlace.web_link}> <Card.Title >{individualFilteredPlace.title}</Card.Title></a>
+                <a style={{textDecoration: "none"}} href={individualFilteredPlace.information1}>Sheet</a>
+                <Card.Text>{individualFilteredPlace.description}</Card.Text>
 
                 {/* buttons */}
                 <div>
                   <Button 
                     onClick={() => {
-                      deletePlace(individualFilteredProduct.ID);
+                      deletePlace(individualFilteredPlace.ID);
                     }}
                   >{" "}
                     Delt
@@ -94,15 +94,15 @@ export const IndividualFilteredPlace = ({individualFilteredProduct}) => {
                   variant="primary" 
                   onClick={() => {
                     editData(
-                      individualFilteredProduct.ID, 
-                      individualFilteredProduct.title,
-                      individualFilteredProduct.description,
-                      individualFilteredProduct.category,
-                      individualFilteredProduct.web_link,
-                      individualFilteredProduct.sheet_link,
-                      individualFilteredProduct.map_link,
-                      individualFilteredProduct.information1,
-                      individualFilteredProduct.img
+                      individualFilteredPlace.ID, 
+                      individualFilteredPlace.title,
+                      individualFilteredPlace.description,
+                      individualFilteredPlace.category,
+                      individualFilteredPlace.web_link,
+                      individualFilteredPlace.sheet_link,
+                      individualFilteredPlace.map_link,
+                      individualFilteredPlace.information1,
+                      individualFilteredPlace.img
                     );
                   }}>
                     edit
@@ -113,37 +113,10 @@ export const IndividualFilteredPlace = ({individualFilteredProduct}) => {
                 </div>
                </Card.Body>
               </Card>
-            </div> 
-
-            // <div className='product-img' style={{}}>
-            // <h1 className='photoCard'><a style={{}} href={individualFilteredProduct.map_link}><img  style={{borderRadius:"10px",boxShadow:"5px",margin:"0px"}}  src={individualFilteredProduct.url} alt="product-img"/>  </a></h1>
-            // </div>
-            // <h4 className='cardTitle'><a style={{textDecoration: 'none'}} href={individualFilteredProduct.web_link}>{individualFilteredProduct.title}  </a></h4>
-            // <a href={individualFilteredProduct.information1}>Sheet</a>
-            // <div className='product-text description'>{individualFilteredProduct.description}</div>
-            // <p className='cardTitle'><a style={{textDecoration: 'none'}} href={individualFilteredProduct.information1}>Json sheet</a></p>
-            // <div>
-            
-            // </div>
-            // <div className='btn btn-danger btn-md cart-btn' onClick={view_cost}>View cost </div>    */}
-            //   {/* </Card>              
+            </div>             
         
     )
    }      
-
-   //import Card from 'react-bootstrap/Card';     
-
-
-      //   <div style={{margin:"10px"}}>
-      // <Card style={{ width: '18rem' }}>      
-      //  <a href={individualFilteredProduct.map_link}><Card.Img variant="top" src={individualFilteredProduct.url} alt="product-img" />  </a>
-      //  <Card.Body>
-      //  <a style={{textDecoration: "none"}} href={individualFilteredProduct.web_link}> <Card.Title >{individualFilteredProduct.title}</Card.Title></a>
-      //   <Card.Text>{individualFilteredProduct.description}</Card.Text>
-      //   <Button variant="primary" onClick={view_cost}>View cost </Button>
-      // </Card.Body>
-      // </Card>
-      // </div> 
 
       
 

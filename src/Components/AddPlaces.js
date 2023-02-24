@@ -1,20 +1,12 @@
 //copy....................................................................
 
 import React,{useState, useEffect} from 'react'
-import { Navbar } from './Navbar'
 import { Places } from './Admin/Places'
 import { IndividualFilteredPlace } from './Admin/IndividualFilteredPlaces'
-import {db} from '../Config/Config';
 import {storage,fs} from '../Config/Config'
 import './addplace.css';
-// import { collection } from "@firebase/firestore";
-//  import { useCollectionData } from "react-firebase-hooks/firestore";
-//  import {useCollectionData} from 'react-firebase-hooks/firestore';
 export const AddPlaces = () => {
 
-    // const query = collection(db, "oses");
-    //  const [docs, loading, error] = useCollectionData(query);
-    // console.log(db);
 
     const [title, setTitle]=useState('');
     const [description, setDescription]=useState('');
@@ -22,7 +14,7 @@ export const AddPlaces = () => {
     const [map_link, setMap_link] = useState('');
     const [category, setCategory]=useState('');
     const [image, setImage]=useState(null);
-    const [web_link, setWeb_link]=useState('');      //link ke declear kora hoilo
+    const [web_link, setWeb_link]=useState('');      
     const [information1, setInformation1]=useState('');
     const [information2, setInformation2]=useState('');
     const [imageError, setImageError]=useState('');
@@ -31,7 +23,7 @@ export const AddPlaces = () => {
     const [uploadError, setUploadError]=useState('');
 
     const types =['image/jpg','image/jpeg','image/png','image/PNG'];
-    const handleProductImg=(e)=>{
+    const handlePlaceImg=(e)=>{
         let selectedFile = e.target.files[0];
         if(selectedFile){
             if(selectedFile&&types.includes(selectedFile.type)){
@@ -48,10 +40,8 @@ export const AddPlaces = () => {
         }
     }
 
-    const handleAddProducts=(e)=>{
+    const handleAddPlaces=(e)=>{
         e.preventDefault();
-        // console.log(title, description, price);
-        // console.log(image);
         const uploadTask=storage.ref(`product-images/${image.name}`).put(image);
         uploadTask.on('state_changed',snapshot=>{
             const progress = (snapshot.bytesTransferred/snapshot.totalBytes)*100
@@ -62,7 +52,6 @@ export const AddPlaces = () => {
                     title,
                     description,
                     category,
-                    //price: Number(price),
                     url,
                     web_link,    //link collection e thakar variable decleared
                     sheet_link,
@@ -85,7 +74,6 @@ export const AddPlaces = () => {
                     setTimeout(()=>{
                         setSuccessMsg('');
                     },3000)
-                    //const a = Products.uid;
                 }).catch(error=>setUploadError(error.message));
             })
         })
@@ -94,29 +82,29 @@ export const AddPlaces = () => {
     // Add Products
 
     // state of products
-    const [products, setProducts]=useState([]);
+    const [places, setPlaces]=useState([]);
 
     // getting products function
-    const getProducts = async ()=>{
-        const products = await fs.collection('Places').get();
-        const productsArray = [];
-        for (var snap of products.docs){
+    const getPlaces = async ()=>{
+        const places = await fs.collection('Places').get();
+        const placesArray = [];
+        for (var snap of places.docs){
             var data = snap.data();
             data.ID = snap.id;
-            productsArray.push({
+            placesArray.push({
                 ...data
             })
-            if(productsArray.length === products.docs.length){
-                setProducts(productsArray);
+            if(placesArray.length === places.docs.length){
+                setPlaces(placesArray);
             }
         }
     }
 
     useEffect(()=>{
-        getProducts();
+        getPlaces();
     },[])
     // globl variable
-    let Product;
+    let Place;
 
      // categories list rendering using span tag
      const [spans]=useState([
@@ -145,13 +133,13 @@ export const AddPlaces = () => {
     }
 
     // filtered products state
-    const [filteredProducts, setFilteredProducts]=useState([]);
+    const [filteredPlaces, setFilteredPlaces]=useState([]);
 
     // filter function
     const filterFunction = (text)=>{
-        if(products.length>1){
-            const filter=products.filter((product)=>product.category===text);
-            setFilteredProducts(filter);
+        if(places.length>1){
+            const filter=places.filter((Place)=>Place.category===text);
+            setFilteredPlaces(filter);
         }
         else{
             console.log('no products to filter')
@@ -159,10 +147,10 @@ export const AddPlaces = () => {
     }
 
     // return to all products
-    const returntoAllProducts=()=>{
+    const returntoAllPlaces=()=>{
         setActive('');
         setCategory('');
-        setFilteredProducts([]);
+        setFilteredPlaces([]);
     }
 
     return (
@@ -175,7 +163,7 @@ export const AddPlaces = () => {
                 <div className='success-msg'>{successMsg}</div>
                 <br></br>
             </>} 
-            <form className="addplaceform" autoComplete="off"  onSubmit={handleAddProducts}>
+            <form className="addplaceform" autoComplete="off"  onSubmit={handleAddPlaces}>
                 <label className='visitingPlaceLabel'>Visiting place</label>
                 <input className='visitingPlaceInput' type="text" required
                 onChange={(e)=>setTitle(e.target.value)} value={title}></input>
@@ -200,7 +188,7 @@ export const AddPlaces = () => {
                 <br></br>
                 <label className='label4'>Upload Place Image</label>
                 <input className='imginput' type="file" id="file"  required
-                onChange={handleProductImg}></input>
+                onChange={handlePlaceImg}></input>
 
                 
                 <br></br>
@@ -264,32 +252,32 @@ export const AddPlaces = () => {
                         ))}
                     
                 </div>
-                {filteredProducts.length > 0&&(
+                {filteredPlaces.length > 0&&(
                   <div className='my-products'>
                       <h1 className='text-center'>{category}</h1>
                       
-                      <a  onClick={returntoAllProducts}>Return to All Place</a>
+                      <a  onClick={returntoAllPlaces}>Return to All Place</a>
                       <div className='products-box'>
-                          {filteredProducts.map(individualFilteredProduct=>(
+                          {filteredPlaces.map(individualFilteredPlace=>(
                               <IndividualFilteredPlace 
-                                key={individualFilteredProduct.ID}
-                                individualFilteredProduct={individualFilteredProduct}                   
+                                key={individualFilteredPlace.ID}
+                                individualFilteredPlace={individualFilteredPlace}                   
                             />
                           ))}
                       </div>
                   </div>  
                 )}
-                {filteredProducts.length < 1&&(
+                {filteredPlaces.length < 1&&(
                     <>
-                        {products.length > 0&&(
+                        {places.length > 0&&(
                             <div className='my-products'>
                                 <h1 className='text-center'>All Places</h1>
                                 <div className='products-box'>
-                                    <Places products={products} />
+                                    <Places places={places} />
                                 </div>
                             </div>
                         )}
-                        {products.length < 1&&(
+                        {places.length < 1&&(
                             <div className='my-products please-wait'>Please wait...</div>
                         )}
                     </>
