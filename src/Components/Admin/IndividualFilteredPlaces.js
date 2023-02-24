@@ -1,23 +1,14 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-import {fs} from '../../Config/Config'
-import {db} from '../../Config/Config'; // https://firebase.google.com/docs/firestore/manage-data/delete-data#web-version-8
-import { useState, useEffect } from 'react';
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-} from "firebase/firestore";
+import {db} from '../../Config/Config'; 
+import { useState } from 'react';
+import {deleteDoc, doc} from "firebase/firestore";
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import EditForm from './EditForm';
 import Card from 'react-bootstrap/Card';  
 
-//https://console.firebase.google.com/u/0/project/project-716fb/firestore/data/~2FProducts~2F0niOg7PevkU3juJF0Gex
 export const IndividualFilteredPlace = ({individualFilteredPlace}) => {
 //modal
 
@@ -28,11 +19,6 @@ export const IndividualFilteredPlace = ({individualFilteredPlace}) => {
 
 //modal
 
-
-
-    const sheet_link = individualFilteredPlace.sheet_link;
-    const web_link   = individualFilteredPlace.web_link;
-    const map_link   = individualFilteredPlace.map_link;
     const navigate = useNavigate(); 
 
     const view_cost=()=>{
@@ -48,11 +34,6 @@ export const IndividualFilteredPlace = ({individualFilteredPlace}) => {
     const deletePlace = async (id) => {
       const userDoc = doc(db, "Places", id);
       await deleteDoc(userDoc);
-    };
-
-    const updatePlaces = async (id) => {
-      // const userDoc = doc(db, "Places", id);
-      // await deleteDoc(userDoc);
     };
 
     const editData = (id, title, description, category, web_link, sheet_link, map_link, information1, img) => {

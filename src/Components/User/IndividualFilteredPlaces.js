@@ -5,9 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export const IndividualFilteredPlace = ({individualFilteredProduct}) => {
-    const sheet_link = individualFilteredProduct.sheet_link;
-    const web_link   = individualFilteredProduct.web_link;
-    const map_link   = individualFilteredProduct.map_link;
+  
     const navigate = useNavigate(); 
 
     const view_cost=()=>{

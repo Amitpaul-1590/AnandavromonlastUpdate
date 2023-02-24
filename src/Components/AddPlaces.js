@@ -1,4 +1,4 @@
-//copy....................................................................
+//git
 
 import React,{useState, useEffect} from 'react'
 import { Places } from './Admin/Places'

@@ -1,18 +1,9 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import {db} from '../../Config/Config';
-import {storage,fs} from '../../Config/Config'
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-} from "firebase/firestore";
-import { type } from '@testing-library/user-event/dist/type';
+import {updateDoc, doc} from "firebase/firestore";
 
 const EditForm = ({closeEvent, fid}) => {
   const id = fid.id;
